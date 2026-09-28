@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ComicCraft - AI Story Studio</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         MAIN PAGE
+    ========================================== -->
+
+    <div class="homepage">
+
+
+        <!-- =====================================
+             HEADER
+        ====================================== -->
+
+        <header class="top-header">
+
+            <div class="brand-area">
+
+                <div class="brand-icon">
+                    📖
+                </div>
+
+                <div>
+
+                    <div class="brand-name">
+                        Comic<span>Craft</span>
+                    </div>
+
+                    <div class="brand-tagline">
+                        Turn ideas into stories ✨
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="studio-badge">
+                AI STORY STUDIO
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================
+             HERO AREA
+        ====================================== -->
+
+        <main class="hero-section">
+
+
+            <!-- =================================
+                 LEFT SIDE
+            ================================== -->
+
+            <section class="hero-left">
+
+
+                <div class="sparkle sparkle-one">
+                    ✦
+                </div>
+
+                <div class="sparkle sparkle-two">
+                    ✧
+                </div>
+
+
+                <div class="powered-badge">
+                    ✨ Powered by AI
+                </div>
+
+
+                <h1>
+                    Your idea.
+                    <br>
+
+                    <span>
+                        Your comic.
+                    </span>
+                </h1>
+
+
+                <p class="hero-description">
+
+                    Imagine a story, give it a little spark,
+                    and let ComicCraft turn it into a
+                    magical five-panel comic.
+
+                </p>
+
+
+                <!-- =================================
+                     THREE FEATURE CARDS
+                ================================== -->
+
+                <div class="feature-row">
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+                            💭
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Imagine
+                            </h3>
+
+                            <p>
+                                Share your idea
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+                            🎨
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Create
+                            </h3>
+
+                            <p>
+                                AI builds your story
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+                            🎭
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Enjoy
+                            </h3>
+
+                            <p>
+                                See your comic
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================
+                 RIGHT SIDE - FORM CARD
+            ================================== -->
+
+            <section class="comic-form-card">
+
+
+                <!-- FORM HEADER -->
+
+                <div class="form-heading">
+
+                    <div class="form-heading-icon">
+                        🖌️
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Create Your Comic
+                        </h2>
+
+                        <p>
+                            Tell us what you are imagining...
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================
+                     GENERATE FORM
+                ================================== -->
+
+                <form
+                    id="comicForm"
+                    action="/generate"
+                    method="POST"
+                >
+
+
+                    <!-- STORY PROMPT -->
+
+                    <div class="form-group">
+
+                        <label for="story_prompt">
+                            Story Prompt
+                        </label>
+
+                        <textarea
+                            id="story_prompt"
+                            name="story_prompt"
+                            rows="4"
+                            placeholder="Tell us your story idea..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <!-- CHARACTER -->
+
+                    <div class="form-group">
+
+                        <label for="character_name">
+                            Main Character
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+                                🧑
+                            </span>
+
+                            <input
+                                type="text"
+                                id="character_name"
+                                name="character_name"
+                                placeholder="Enter character name"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- SETTING -->
+
+                    <div class="form-group">
+
+                        <label for="setting">
+                            Where does it happen?
+                        </label>
+
+                        <div class="select-wrapper">
+
+                            <span class="select-icon">
+                                🌍
+                            </span>
+
+                            <select
+                                id="setting"
+                                name="setting"
+                                required
+                            >
+
+                                <option value="School">
+                                    🏫 School
+                                </option>
+
+                                <option value="Enchanted Forest">
+                                    🌲 Enchanted Forest
+                                </option>
+
+                                <option value="Space">
+                                    🚀 Space
+                                </option>
+
+                                <option value="Future City">
+                                    🌆 Future City
+                                </option>
+
+                                <option value="Village">
+                                    🏡 Village
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- TONE -->
+
+                    <div class="form-group">
+
+                        <label for="tone">
+                            What should it feel like?
+                        </label>
+
+                        <div class="select-wrapper">
+
+                            <span class="select-icon">
+                                💗
+                            </span>
+
+                            <select
+                                id="tone"
+                                name="tone"
+                                required
+                            >
+
+                                <option value="Emotional">
+                                    💗 Emotional
+                                </option>
+
+                                <option value="Funny">
+                                    😂 Funny
+                                </option>
+
+                                <option value="Adventure">
+                                    ⚔️ Adventure
+                                </option>
+
+                                <option value="Mystery">
+                                    🔎 Mystery
+                                </option>
+
+                                <option value="Fantasy">
+                                    ✨ Fantasy
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ART STYLE -->
+
+                    <div class="form-group">
+
+                        <label for="art_style">
+                            Pick your art style
+                        </label>
+
+                        <div class="select-wrapper">
+
+                            <span class="select-icon">
+                                🎨
+                            </span>
+
+                            <select
+                                id="art_style"
+                                name="art_style"
+                                required
+                            >
+
+                                <option value="Watercolor">
+                                    🖌️ Watercolor
+                                </option>
+
+                                <option value="Cartoon">
+                                    🧸 Cartoon
+                                </option>
+
+                                <option value="Anime">
+                                    🌸 Anime
+                                </option>
+
+                                <option value="Comic Book">
+                                    💥 Comic Book
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- GENERATE BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="generate-btn"
+                    >
+
+                        <span>
+                            ✨
+                        </span>
+
+                        Create My Comic
+
+                        <span>
+                            →
+                        </span>
+
+                    </button>
+
+
+                    <p class="form-footer">
+                        🔒 Your story starts with one idea
+                    </p>
+
+
+                </form>
+
+
+            </section>
+
+
+        </main>
+
+
+
+        <!-- =====================================
+             BOTTOM DECORATION
+        ====================================== -->
+
+        <div class="bottom-text">
+            ✦ &nbsp; DREAM &nbsp; • &nbsp; IMAGINE &nbsp; • &nbsp; CREATE &nbsp; ✦
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =========================================
+         OPTIONAL FORM LOADING EFFECT
+    ========================================== -->
+
+    <script>
+
+        const comicForm =
+            document.getElementById("comicForm");
+
+        comicForm.addEventListener(
+            "submit",
+            function () {
+
+                const button =
+                    document.querySelector(
+                        ".generate-btn"
+                    );
+
+                button.innerHTML =
+                    "✨ Creating Your Comic...";
+
+                button.disabled = true;
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

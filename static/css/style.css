@@ -1,0 +1,1048 @@
+/* =========================================================
+   COMICCRAFT - NEW HOMEPAGE
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(184, 151, 255, 0.45),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(255, 196, 245, 0.45),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #f4f1ff,
+            #f9f7ff 45%,
+            #eeeaff
+        );
+
+    color: #20234f;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   HOMEPAGE
+   ========================================================= */
+
+.homepage {
+    min-height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding-bottom: 35px;
+}
+
+
+/* =========================================================
+   DECORATIVE BACKGROUND
+   ========================================================= */
+
+.homepage::before {
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    top: 120px;
+    left: -180px;
+
+    background: rgba(174, 139, 255, 0.20);
+
+    border-radius: 50%;
+
+    filter: blur(10px);
+
+    pointer-events: none;
+}
+
+
+.homepage::after {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    bottom: -130px;
+    right: -100px;
+
+    background: rgba(151, 180, 255, 0.22);
+
+    border-radius: 50%;
+
+    filter: blur(15px);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.top-header {
+
+    width: 100%;
+
+    padding: 25px 7%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+.brand-area {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.brand-icon {
+
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255,255,255,0.85);
+
+    border-radius: 14px;
+
+    font-size: 24px;
+
+    box-shadow:
+        0 8px 25px rgba(74, 57, 140, 0.10);
+}
+
+
+.brand-name {
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    color: #20234f;
+
+    letter-spacing: -0.5px;
+}
+
+
+.brand-name span {
+
+    background:
+        linear-gradient(
+            90deg,
+            #7650ff,
+            #a15cff
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+.brand-tagline {
+
+    font-size: 11px;
+
+    margin-top: 2px;
+
+    color: #8c8da8;
+}
+
+
+.studio-badge {
+
+    padding: 11px 21px;
+
+    background: rgba(255,255,255,0.65);
+
+    border: 1px solid rgba(255,255,255,0.85);
+
+    border-radius: 30px;
+
+    color: #77728f;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 8px 25px rgba(71, 50, 130, 0.08);
+}
+
+
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
+
+.hero-section {
+
+    width: 86%;
+
+    max-width: 1320px;
+
+    margin: 35px auto 0;
+
+    min-height: 700px;
+
+    display: grid;
+
+    grid-template-columns:
+        0.9fr
+        1.1fr;
+
+    gap: 70px;
+
+    align-items: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   LEFT HERO
+   ========================================================= */
+
+.hero-left {
+
+    padding-left: 35px;
+
+    position: relative;
+}
+
+
+.powered-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 10px 17px;
+
+    background: rgba(255,255,255,0.82);
+
+    border-radius: 30px;
+
+    color: #7654e8;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 8px 25px rgba(79, 60, 145, 0.08);
+
+    margin-bottom: 25px;
+}
+
+
+.hero-left h1 {
+
+    font-size: clamp(
+        55px,
+        6vw,
+        82px
+    );
+
+    line-height: 0.98;
+
+    letter-spacing: -4px;
+
+    color: #20234f;
+
+    font-weight: 850;
+
+    margin-bottom: 30px;
+}
+
+
+.hero-left h1 span {
+
+    background:
+        linear-gradient(
+            90deg,
+            #7751ff,
+            #9b57ff,
+            #7657f5
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+.hero-description {
+
+    max-width: 490px;
+
+    color: #8585a2;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================================
+   SPARKLES
+   ========================================================= */
+
+.sparkle {
+
+    position: absolute;
+
+    color: #916cff;
+
+    font-size: 28px;
+
+    animation: sparkleFloat 3s ease-in-out infinite;
+}
+
+
+.sparkle-one {
+
+    top: 40px;
+
+    left: -5px;
+}
+
+
+.sparkle-two {
+
+    right: 20px;
+
+    top: 220px;
+
+    color: #ec7bd1;
+
+    font-size: 32px;
+
+    animation-delay: 1s;
+}
+
+
+@keyframes sparkleFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.75;
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(10deg);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   FEATURE CARDS
+   ========================================================= */
+
+.feature-row {
+
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+
+.feature-card {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 13px 15px;
+
+    background: rgba(255,255,255,0.70);
+
+    border: 1px solid rgba(255,255,255,0.8);
+
+    border-radius: 15px;
+
+    min-width: 145px;
+
+    box-shadow:
+        0 8px 25px rgba(65, 48, 130, 0.07);
+
+    transition: 0.25s ease;
+}
+
+
+.feature-card:hover {
+
+    transform: translateY(-4px);
+
+    background: rgba(255,255,255,0.92);
+
+    box-shadow:
+        0 15px 30px rgba(65, 48, 130, 0.12);
+}
+
+
+.feature-icon {
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #f0eaff;
+
+    border-radius: 10px;
+
+    font-size: 17px;
+}
+
+
+.feature-card h3 {
+
+    font-size: 12px;
+
+    color: #33355e;
+
+    margin-bottom: 3px;
+}
+
+
+.feature-card p {
+
+    font-size: 9px;
+
+    color: #9999ae;
+}
+
+
+/* =========================================================
+   FORM CARD
+   ========================================================= */
+
+.comic-form-card {
+
+    background:
+        rgba(255,255,255,0.86);
+
+    border: 1px solid rgba(255,255,255,0.95);
+
+    border-radius: 30px;
+
+    padding: 32px;
+
+    box-shadow:
+        0 30px 70px rgba(71, 55, 135, 0.16);
+
+    backdrop-filter: blur(20px);
+
+    -webkit-backdrop-filter: blur(20px);
+
+    max-width: 650px;
+
+    width: 100%;
+
+    margin-left: auto;
+}
+
+
+/* =========================================================
+   FORM HEADING
+   ========================================================= */
+
+.form-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+
+.form-heading-icon {
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eee2ff,
+            #f9dfff
+        );
+
+    border-radius: 15px;
+
+    font-size: 24px;
+}
+
+
+.form-heading h2 {
+
+    color: #292b55;
+
+    font-size: 27px;
+
+    letter-spacing: -0.7px;
+
+    margin-bottom: 4px;
+}
+
+
+.form-heading p {
+
+    color: #9999ae;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   FORM GROUP
+   ========================================================= */
+
+.form-group {
+
+    margin-bottom: 16px;
+}
+
+
+.form-group label {
+
+    display: block;
+
+    color: #454667;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    margin-bottom: 7px;
+}
+
+
+/* =========================================================
+   TEXTAREA
+   ========================================================= */
+
+.form-group textarea {
+
+    width: 100%;
+
+    min-height: 78px;
+
+    resize: vertical;
+
+    padding: 14px 16px;
+
+    border: 1px solid #deddeb;
+
+    border-radius: 14px;
+
+    background: rgba(255,255,255,0.72);
+
+    color: #303253;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+
+.form-group textarea::placeholder {
+
+    color: #aaaabd;
+}
+
+
+.form-group textarea:focus {
+
+    border-color: #8963ff;
+
+    box-shadow:
+        0 0 0 3px rgba(137,99,255,0.10);
+
+    background: white;
+}
+
+
+/* =========================================================
+   TEXT INPUT
+   ========================================================= */
+
+.input-wrapper {
+
+    position: relative;
+}
+
+
+.input-icon {
+
+    position: absolute;
+
+    left: 15px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 14px;
+}
+
+
+.input-wrapper input {
+
+    width: 100%;
+
+    height: 47px;
+
+    padding:
+        0
+        15px
+        0
+        43px;
+
+    border: 1px solid #deddeb;
+
+    border-radius: 14px;
+
+    background: rgba(255,255,255,0.72);
+
+    color: #303253;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+
+.input-wrapper input::placeholder {
+
+    color: #aaaabd;
+}
+
+
+.input-wrapper input:focus {
+
+    border-color: #8963ff;
+
+    box-shadow:
+        0 0 0 3px rgba(137,99,255,0.10);
+
+    background: white;
+}
+
+
+/* =========================================================
+   SELECT
+   ========================================================= */
+
+.select-wrapper {
+
+    position: relative;
+}
+
+
+.select-icon {
+
+    position: absolute;
+
+    left: 15px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 14px;
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+
+.select-wrapper select {
+
+    width: 100%;
+
+    height: 47px;
+
+    padding:
+        0
+        40px
+        0
+        43px;
+
+    border: 1px solid #deddeb;
+
+    border-radius: 14px;
+
+    background: rgba(255,255,255,0.72);
+
+    color: #4c4d69;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    outline: none;
+
+    cursor: pointer;
+
+    appearance: auto;
+
+    transition: 0.2s ease;
+}
+
+
+.select-wrapper select:focus {
+
+    border-color: #8963ff;
+
+    box-shadow:
+        0 0 0 3px rgba(137,99,255,0.10);
+
+    background: white;
+}
+
+
+/* =========================================================
+   GENERATE BUTTON
+   ========================================================= */
+
+.generate-btn {
+
+    width: 100%;
+
+    height: 50px;
+
+    margin-top: 7px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #7044f5,
+            #8b55ff,
+            #687ff8
+        );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    box-shadow:
+        0 12px 25px rgba(110, 70, 240, 0.25);
+
+    transition: 0.25s ease;
+}
+
+
+.generate-btn:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 17px 32px rgba(110, 70, 240, 0.32);
+}
+
+
+.generate-btn:active {
+
+    transform: translateY(0);
+}
+
+
+.generate-btn:disabled {
+
+    opacity: 0.7;
+
+    cursor: wait;
+
+    transform: none;
+}
+
+
+/* =========================================================
+   FORM FOOTER
+   ========================================================= */
+
+.form-footer {
+
+    text-align: center;
+
+    margin-top: 13px;
+
+    color: #aaa9bd;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   BOTTOM TEXT
+   ========================================================= */
+
+.bottom-text {
+
+    text-align: center;
+
+    color: #a29ab9;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+    position: relative;
+
+    z-index: 3;
+
+    margin-top: 10px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    .hero-section {
+
+        width: 92%;
+
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+
+        margin-top: 20px;
+    }
+
+
+    .hero-left {
+
+        padding-left: 10px;
+
+        text-align: center;
+    }
+
+
+    .hero-description {
+
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+
+    .feature-row {
+
+        justify-content: center;
+    }
+
+
+    .comic-form-card {
+
+        margin: 0 auto;
+    }
+
+
+    .sparkle-one {
+
+        left: 8%;
+    }
+
+
+    .sparkle-two {
+
+        right: 8%;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .top-header {
+
+        padding: 18px 5%;
+    }
+
+
+    .brand-name {
+
+        font-size: 21px;
+    }
+
+
+    .brand-icon {
+
+        width: 40px;
+        height: 40px;
+
+        font-size: 20px;
+    }
+
+
+    .studio-badge {
+
+        display: none;
+    }
+
+
+    .hero-section {
+
+        width: 92%;
+
+        margin-top: 20px;
+
+        gap: 30px;
+    }
+
+
+    .hero-left {
+
+        padding: 0;
+    }
+
+
+    .hero-left h1 {
+
+        font-size: 50px;
+
+        letter-spacing: -3px;
+    }
+
+
+    .hero-description {
+
+        font-size: 14px;
+    }
+
+
+    .feature-row {
+
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+
+    .feature-card {
+
+        width: 200px;
+    }
+
+
+    .comic-form-card {
+
+        padding: 22px;
+
+        border-radius: 22px;
+    }
+
+
+    .form-heading h2 {
+
+        font-size: 23px;
+    }
+
+
+    .bottom-text {
+
+        letter-spacing: 2px;
+    }
+}

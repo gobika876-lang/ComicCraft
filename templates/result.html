@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ComicCraft - Your AI Comic</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #071936;
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* ==============================
+           HEADER
+        ============================== */
+
+        .top-header {
+            width: 100%;
+            padding: 22px 50px;
+
+            background: #06152f;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .tagline {
+            color: #aebbd5;
+            font-size: 14px;
+        }
+
+        /* ==============================
+           MAIN CONTAINER
+        ============================== */
+
+        .container {
+            width: 92%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            color: #aebbd5;
+            margin-bottom: 35px;
+        }
+
+        /* ==============================
+           STORY INFO
+        ============================== */
+
+        .story-info {
+            background: #0d2245;
+            padding: 22px;
+            border-radius: 16px;
+            margin-bottom: 35px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .story-info p {
+            margin: 8px 0;
+            color: #dce6f7;
+        }
+
+        .story-info strong {
+            color: #ffffff;
+        }
+
+        /* ==============================
+           COMIC GRID
+        ============================== */
+
+        .comic-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        /* ==============================
+           PANEL CARD
+        ============================== */
+
+        .panel-card {
+            background: #102952;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.25);
+        }
+
+        /* ==============================
+           PANEL IMAGE
+        ============================== */
+
+        .panel-image {
+            width: 100%;
+            height: 430px;
+
+            object-fit: cover;
+            display: block;
+
+            background: #152f59;
+        }
+
+        /* ==============================
+           PANEL CONTENT
+        ============================== */
+
+        .panel-content {
+            padding: 22px;
+        }
+
+        .panel-number {
+            color: #9d67ff;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .panel-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .panel-content h4 {
+            margin-top: 15px;
+            margin-bottom: 7px;
+            color: #ffc928;
+        }
+
+        .panel-content p {
+            color: #d4def0;
+            line-height: 1.6;
+        }
+
+        /* ==============================
+           REGENERATE BUTTON
+        ============================== */
+
+        .regenerate-btn {
+            width: 100%;
+
+            margin-top: 20px;
+            padding: 13px 18px;
+
+            border: none;
+            border-radius: 10px;
+
+            background: linear-gradient(
+                135deg,
+                #7c5cff,
+                #9d67ff
+            );
+
+            color: white;
+
+            font-size: 15px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .regenerate-btn:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 20px rgba(124,92,255,0.35);
+        }
+
+        .regenerate-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* ==============================
+           BOTTOM BUTTONS
+        ============================== */
+
+        .bottom-buttons {
+            display: flex;
+
+            justify-content: center;
+            gap: 18px;
+
+            margin-top: 45px;
+            margin-bottom: 50px;
+        }
+
+        .download-btn,
+        .new-comic-btn {
+            display: inline-block;
+
+            padding: 14px 25px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+        .download-btn {
+            background: #ffc928;
+            color: #071936;
+        }
+
+        .new-comic-btn {
+            background: #7c5cff;
+            color: white;
+        }
+
+        .download-btn:hover,
+        .new-comic-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ==============================
+           PANEL 5 CENTER
+        ============================== */
+
+        .panel-card:nth-child(5) {
+            grid-column: 1 / 3;
+            width: 48%;
+            margin: 0 auto;
+        }
+
+        /* ==============================
+           MOBILE
+        ============================== */
+
+        @media (max-width: 800px) {
+
+            .comic-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .panel-card:nth-child(5) {
+                grid-column: auto;
+                width: 100%;
+            }
+
+            .panel-image {
+                height: 350px;
+            }
+
+            .bottom-buttons {
+                flex-direction: column;
+            }
+
+            .download-btn,
+            .new-comic-btn {
+                text-align: center;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==============================
+         HEADER
+    ============================== -->
+
+    <header class="top-header">
+
+        <div class="logo">
+            📖 ComicCraft
+        </div>
+
+        <div class="tagline">
+            Dream ✦ Imagine ✦ Create
+        </div>
+
+    </header>
+
+
+    <!-- ==============================
+         MAIN
+    ============================== -->
+
+    <main class="container">
+
+
+        <h1 class="page-title">
+            🎨 Your AI Comic
+        </h1>
+
+
+        <p class="page-subtitle">
+            Your story has been transformed into a 5-panel AI comic.
+        </p>
+
+
+        <!-- ==============================
+             STORY INFORMATION
+        ============================== -->
+
+        <div class="story-info">
+
+            <p>
+                <strong>Story:</strong>
+                {{ story_prompt }}
+            </p>
+
+            <p>
+                <strong>Character:</strong>
+                {{ character_name }}
+            </p>
+
+            <p>
+                <strong>Setting:</strong>
+                {{ setting }}
+            </p>
+
+            <p>
+                <strong>Tone:</strong>
+                {{ tone }}
+            </p>
+
+            <p>
+                <strong>Art Style:</strong>
+                {{ art_style }}
+            </p>
+
+        </div>
+
+
+        <!-- ==============================
+             COMIC PANELS
+        ============================== -->
+
+        <div class="comic-grid">
+
+
+            {% for panel in panels %}
+
+            <div class="panel-card">
+
+
+                <!-- ==============================
+                     PANEL IMAGE
+                     FIXED IMAGE PATH
+                ============================== -->
+
+                <img
+                    id="panel-image-{{ loop.index }}"
+                    class="panel-image"
+
+                    src="{{ url_for(
+                        'static',
+                        filename='images/generated/panel' ~ loop.index ~ '.png'
+                    ) }}"
+
+                    alt="Comic Panel {{ loop.index }}"
+                >
+
+
+                <div class="panel-content">
+
+
+                    <div class="panel-number">
+                        PANEL {{ loop.index }}
+                    </div>
+
+
+                    <h2 class="panel-title">
+                        {{ panel.get(
+                            "title",
+                            "Panel " ~ loop.index
+                        ) }}
+                    </h2>
+
+
+                    <!-- ==============================
+                         SCENE
+                    ============================== -->
+
+                    <h4>
+                        Scene
+                    </h4>
+
+                    <p class="scene-text">
+                        {{ panel.get(
+                            "scene_description",
+                            ""
+                        ) }}
+                    </p>
+
+
+                    <!-- ==============================
+                         DIALOGUE
+                    ============================== -->
+
+                    <h4>
+                        Dialogue
+                    </h4>
+
+                    <p class="dialogue-text">
+                        {{ panel.get(
+                            "dialogue",
+                            ""
+                        ) }}
+                    </p>
+
+
+                    <!-- ==============================
+                         IMAGE PROMPT
+                    ============================== -->
+
+                    {% if panel.get("image_prompt") %}
+
+                    <h4>
+                        AI Image Prompt
+                    </h4>
+
+                    <p class="image-prompt-text">
+                        {{ panel.get(
+                            "image_prompt",
+                            ""
+                        ) }}
+                    </p>
+
+                    {% endif %}
+
+
+                    <!-- ==============================
+                         REGENERATE BUTTON
+                    ============================== -->
+
+                    <button
+                        type="button"
+
+                        class="regenerate-btn"
+
+                        onclick="regeneratePanel(
+                            {{ loop.index }},
+                            this
+                        )"
+                    >
+                        🔄 Regenerate Panel {{ loop.index }}
+                    </button>
+
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+
+        </div>
+
+
+        <!-- ==============================
+             BOTTOM BUTTONS
+        ============================== -->
+
+        <div class="bottom-buttons">
+
+
+            <a
+                href="{{ url_for('main.download_comic') }}"
+                class="download-btn"
+            >
+                📥 Download Comic PDF
+            </a>
+
+
+            <a
+                href="{{ url_for('main.home') }}"
+                class="new-comic-btn"
+            >
+                ✨ Create Another Comic
+            </a>
+
+
+        </div>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+        async function regeneratePanel(
+            panelNumber,
+            button
+        ) {
+
+            // Disable button
+            button.disabled = true;
+
+            button.innerText =
+                "⏳ Regenerating Panel " +
+                panelNumber +
+                "...";
+
+
+            // Find panel card
+            const panelCard =
+                button.closest(".panel-card");
+
+
+            // Find image
+            const image =
+                document.getElementById(
+                    "panel-image-" +
+                    panelNumber
+                );
+
+
+            // Get panel information
+            const title =
+                panelCard.querySelector(
+                    ".panel-title"
+                ).innerText;
+
+
+            const scene =
+                panelCard.querySelector(
+                    ".scene-text"
+                ).innerText;
+
+
+            const dialogue =
+                panelCard.querySelector(
+                    ".dialogue-text"
+                ).innerText;
+
+
+            // Create form data
+            const formData =
+                new FormData();
+
+
+            formData.append(
+                "character_name",
+                "{{ character_name }}"
+            );
+
+
+            formData.append(
+                "art_style",
+                "{{ art_style }}"
+            );
+
+
+            formData.append(
+                "panel_title",
+                title
+            );
+
+
+            formData.append(
+                "scene_description",
+                scene
+            );
+
+
+            formData.append(
+                "dialogue",
+                dialogue
+            );
+
+
+            /* ==========================================
+               SEND ORIGINAL IMAGE PROMPT
+            ========================================== */
+
+            {% for panel in panels %}
+
+            if (
+                panelNumber ===
+                {{ loop.index }}
+            ) {
+
+                formData.append(
+                    "image_prompt",
+                    {{ panel.get(
+                        "image_prompt",
+                        ""
+                    ) | tojson }}
+                );
+
+            }
+
+            {% endfor %}
+
+
+            try {
+
+
+                /* ======================================
+                   CALL FLASK REGENERATE ROUTE
+                ====================================== */
+
+                const response =
+                    await fetch(
+                        "/regenerate/" +
+                        panelNumber,
+                        {
+                            method: "POST",
+                            body: formData
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                /* ======================================
+                   CHECK RESPONSE
+                ====================================== */
+
+                if (!data.success) {
+
+                    throw new Error(
+                        "Panel regeneration failed."
+                    );
+
+                }
+
+
+                /* ======================================
+                   UPDATE IMAGE
+                ====================================== */
+
+                image.src =
+                    data.image_path +
+                    "?t=" +
+                    new Date().getTime();
+
+
+                /* ======================================
+                   SUCCESS MESSAGE
+                ====================================== */
+
+                button.innerText =
+                    "✅ Panel " +
+                    panelNumber +
+                    " Regenerated";
+
+
+                /* ======================================
+                   RESET BUTTON
+                ====================================== */
+
+                setTimeout(
+                    function() {
+
+                        button.disabled =
+                            false;
+
+                        button.innerText =
+                            "🔄 Regenerate Panel " +
+                            panelNumber;
+
+                    },
+                    2000
+                );
+
+
+            } catch (error) {
+
+
+                console.error(
+                    "Regeneration error:",
+                    error
+                );
+
+
+                button.disabled =
+                    false;
+
+
+                button.innerText =
+                    "❌ Regeneration Failed";
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

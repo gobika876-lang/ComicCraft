@@ -1,0 +1,6 @@
+Flask
+python-dotenv
+huggingface_hub
+Pillow
+reportlab
+google-generativeai
